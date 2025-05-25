@@ -1,0 +1,33 @@
+digraph {
+	A [label=Start]
+	B [label="Input massa, volume, cairan"]
+	C [label="Hitung massa jenis benda"]
+	D [label="Massa <= 0?"]
+	E [label="Print: Massa tidak boleh negatif"]
+	F [label="Volume <= 0?"]
+	G [label="Print: Volume tidak boleh negatif"]
+	H [label="Pilih massa jenis cairan"]
+	I [label="Cairan valid?"]
+	J [label="Print: Cairan tidak dikenal"]
+	K [label="Tentukan kondisi benda"]
+	L [label="Benda mengapung"]
+	M [label="Benda melayang"]
+	N [label="Benda tenggelam"]
+	O [label=End]
+	A -> B
+	B -> C
+	C -> D
+	D -> E [label=Yes]
+	D -> F [label=No]
+	F -> G [label=Yes]
+	F -> H [label=No]
+	H -> I
+	I -> J [label=No]
+	I -> K [label=Yes]
+	K -> L [label="Massa jenis benda < massa jenis cairan"]
+	K -> M [label="Massa jenis benda == massa jenis cairan"]
+	K -> N [label="Massa jenis benda > massa jenis cairan"]
+	L -> O
+	M -> O
+	N -> O
+}
